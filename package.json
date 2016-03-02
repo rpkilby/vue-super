@@ -21,5 +21,43 @@
   "bugs": {
     "url": "https://github.com/rpkilby/vue-super/issues"
   },
-  "homepage": "https://github.com/rpkilby/vue-super#readme"
+  "homepage": "https://github.com/rpkilby/vue-super#readme",
+  "eslintConfig": {
+    "extends": [
+      "defaults/configurations/eslint",
+      "defaults/configurations/airbnb"
+    ],
+    "env": {
+      "es6": true,
+      "mocha": true,
+      "node": true
+    },
+    "ecmaFeatures": {
+      "modules": true
+    },
+    "rules": {
+      "indent": 0,
+      "comma-dangle": [
+        2,
+        "always-multiline"
+      ],
+      "no-use-before-define": [
+        2,
+        "nofunc"
+      ],
+      "func-names": 0,
+      "curly": [
+        2,
+        "multi-or-nest"
+      ],
+      "no-reserved-keys": 0,
+      "no-unused-vars": [
+        2,
+        {
+          "vars": "all",
+          "varsIgnorePattern": "__"
+        }
+      ]
+    }
+  }
 }
