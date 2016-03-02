@@ -1,0 +1,25 @@
+{
+  "name": "vue-super",
+  "version": "0.0.1",
+  "description": "Vue.js plugin that allows you to reference methods on parent classes",
+  "main": "vue-super.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpkilby/vue-super.git"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "super",
+    "inheritance"
+  ],
+  "author": "Ryan P Kilby <rpkilby@ncsu.edu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rpkilby/vue-super/issues"
+  },
+  "homepage": "https://github.com/rpkilby/vue-super#readme"
+}
