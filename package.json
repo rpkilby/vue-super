@@ -1,6 +1,6 @@
 {
   "name": "vue-super",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue.js plugin that allows you to reference methods on parent classes",
   "main": "vue-super.js",
   "scripts": {
@@ -22,6 +22,9 @@
     "url": "https://github.com/rpkilby/vue-super/issues"
   },
   "homepage": "https://github.com/rpkilby/vue-super#readme",
+  "jspm": {
+    "format": "esm"
+  },
   "eslintConfig": {
     "extends": [
       "defaults/configurations/eslint",
