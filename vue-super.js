@@ -31,10 +31,20 @@
  *  })
  */
 
+const classifyRE = /(?:^|[-_])(\w)/g;
+
+
+function classify(str) {
+    return str
+        ? str.replace(classifyRE, c => c.toUpperCase())
+             .replace(/[-_]/g, '')
+        : 'Anonymous';
+}
+
 
 function $super(type, self) {
     if (!(self instanceof type))
-        throw new TypeError(`'${self}' not instance of '${type}'`);
+        throw new TypeError(`<${classify(self.name)}> not instance of <${classify(type.name)}>`);
 
     const unbound = type.super.options.methods;
     const bound = {};
@@ -49,9 +59,10 @@ function $super(type, self) {
 function install(Vue) {
     Object.defineProperties(Vue.prototype, {
         $super: {
-            get: function() {
-                // 'clone' the function so we don't overwrite properties
-                // across invocations.
+            get() {
+                // This enables direct method access on $super. eg, this.$super.method();
+                // Binding the function with an empty context prevents multiple vue
+                // instances from operating on the same context.
                 const local = $super.bind({});
 
                 const methods = local(this.constructor, this);
@@ -65,6 +76,7 @@ function install(Vue) {
 }
 
 // auto install
+/* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue)
     window.Vue.use(install);
 

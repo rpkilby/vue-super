@@ -121,3 +121,21 @@ tap.test('use provided class as base', t => {
     t.equal(vue.child, 0);
     t.equal(vue.skip, 1);
 });
+
+
+tap.test('only bind against inherited types', t => {
+    t.plan(1);
+
+    const Err = Parent.extend({
+        methods: {
+            increment() {
+                this.$super(Final, this).increment();
+                this.child += 1;
+            },
+        },
+    });
+
+    const vue = new Err();
+
+    t.throws(vue.increment, new TypeError('<Anonymous> not instance of <Final>'));
+});
