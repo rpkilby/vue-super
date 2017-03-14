@@ -127,6 +127,7 @@ tap.test('only bind against inherited types', t => {
     t.plan(1);
 
     const Err = Parent.extend({
+        name: 'err',
         methods: {
             increment() {
                 this.$super(Final, this).increment();
@@ -137,7 +138,7 @@ tap.test('only bind against inherited types', t => {
 
     const vue = new Err();
 
-    t.throws(vue.increment, new TypeError('<Anonymous> not instance of <Final>'));
+    t.throws(vue.increment, new TypeError('<Err> not an instance of <Final>'));
 });
 
 

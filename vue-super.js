@@ -31,20 +31,21 @@
  *  })
  */
 
-const classifyRE = /(?:^|[-_])(\w)/g;
 
+function vueName(type) {
+    const name = type.sealedOptions
+        ? type.sealedOptions.name
+        : type.name;
 
-function classify(str) {
-    return str
-        ? str.replace(classifyRE, c => c.toUpperCase())
-             .replace(/[-_]/g, '')
+    return name
+        ? name[0].toUpperCase() + name.substr(1).toLowerCase()  // title case
         : 'Anonymous';
 }
 
 
 function $super(type, self) {
     if (!(self instanceof type))
-        throw new TypeError(`<${classify(self.name)}> not instance of <${classify(type.name)}>`);
+        throw new TypeError(`<${vueName(self.constructor)}> not an instance of <${vueName(type)}>`);
 
     const unbound = type.super.options.methods || {};
     const bound = {};
