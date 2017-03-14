@@ -2,10 +2,13 @@
 
 [![Build Status](https://travis-ci.org/rpkilby/vue-super.svg?branch=master)](https://travis-ci.org/rpkilby/vue-super)
 [![codecov](https://codecov.io/gh/rpkilby/vue-super/branch/master/graph/badge.svg)](https://codecov.io/gh/rpkilby/vue-super)
+[![Version](https://img.shields.io/npm/v/vue-super.svg)](https://www.npmjs.com/package/vue-super)
 
 
 Provides a `$super` handler for accessing parent vue methods from a subclass.
 Behaves similarly to python's super implementation.
+
+> vue-super is tested against both vue@1 and vue@2
 
 Example:
 

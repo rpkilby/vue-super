@@ -1,6 +1,6 @@
 {
   "name": "vue-super",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Vue.js plugin that allows you to reference methods on parent classes",
   "main": "vue-super.js",
   "scripts": {
