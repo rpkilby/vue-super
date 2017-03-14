@@ -4,7 +4,9 @@
   "description": "Vue.js plugin that allows you to reference methods on parent classes",
   "main": "vue-super.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint && tap test.js --cov --nyc-arg=--require=babel-register",
+    "report-coverage": "nyc report --reporter=lcov && codecov",
+    "lint": "eslint vue-super.js test.js"
   },
   "repository": {
     "type": "git",
@@ -25,42 +27,14 @@
   "jspm": {
     "format": "esm"
   },
-  "eslintConfig": {
-    "extends": [
-      "defaults/configurations/eslint",
-      "defaults/configurations/airbnb"
-    ],
-    "env": {
-      "es6": true,
-      "mocha": true,
-      "node": true
-    },
-    "ecmaFeatures": {
-      "modules": true
-    },
-    "rules": {
-      "indent": 0,
-      "comma-dangle": [
-        2,
-        "always-multiline"
-      ],
-      "no-use-before-define": [
-        2,
-        "nofunc"
-      ],
-      "func-names": 0,
-      "curly": [
-        2,
-        "multi-or-nest"
-      ],
-      "no-reserved-keys": 0,
-      "no-unused-vars": [
-        2,
-        {
-          "vars": "all",
-          "varsIgnorePattern": "__"
-        }
-      ]
-    }
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-register": "^6.24.0",
+    "codecov": "^1.0.1",
+    "eslint": "^3.17.1",
+    "eslint-config-itng": "github:itng/eslint-config-itng#0.0.1",
+    "tap": "^10.3.0",
+    "vue": "*"
   }
 }
