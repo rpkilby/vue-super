@@ -1,5 +1,8 @@
 # vue-super
 
+[![Build Status](https://travis-ci.org/rpkilby/vue-super.svg?branch=master)](https://travis-ci.org/rpkilby/vue-super)
+[![codecov](https://codecov.io/gh/rpkilby/vue-super/branch/master/graph/badge.svg)](https://codecov.io/gh/rpkilby/vue-super)
+
 
 Provides a `$super` handler for accessing parent vue methods from a subclass.
 Behaves similarly to python's super implementation.
@@ -25,7 +28,7 @@ const Child = Parent.extend({
 })
 ```
 
-For convenience, methods are directly accessible on the `$super` object. 
+For convenience, methods are directly accessible on the `$super` object.
 However, this behavior is only valid on a final subclass.
 
 ```js
