@@ -139,3 +139,22 @@ tap.test('only bind against inherited types', t => {
 
     t.throws(vue.increment, new TypeError('<Anonymous> not instance of <Final>'));
 });
+
+
+tap.test('throw appropriate error when parent does not have `methods` attribute', t => {
+    t.plan(1);
+
+    const Err = Parent.extend({
+        methods: {
+            increment() {
+                // Parent's super class is just Vue - method does not exist
+                this.$super(Parent, this).increment();
+                this.child += 1;
+            },
+        },
+    });
+
+    const vue = new Err();
+
+    t.throws(vue.increment, new TypeError('this.$super(...).increment is not a function'));
+});

@@ -46,7 +46,7 @@ function $super(type, self) {
     if (!(self instanceof type))
         throw new TypeError(`<${classify(self.name)}> not instance of <${classify(type.name)}>`);
 
-    const unbound = type.super.options.methods;
+    const unbound = type.super.options.methods || {};
     const bound = {};
 
     for (const key of Object.keys(unbound))
