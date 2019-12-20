@@ -47,7 +47,10 @@ function $super(type, self) {
     if (!(self instanceof type))
         throw new TypeError(`<${vueName(self.constructor)}> not an instance of <${vueName(type)}>`);
 
-    const unbound = type.super.options.methods || {};
+    const unbound = {
+        ...(type.options.extends && type.options.extends.methods || {}),
+        ...(type.super.options.methods || {})
+    };
     const bound = {};
 
     for (const key of Object.keys(unbound))
